@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday Wijwijti</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Open+Sans&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Open Sans', sans-serif;
+      background: linear-gradient(to right, #ffe6f0, #ffeef9);
+      color: #333;
+      text-align: center;
+      overflow-x: hidden;
+    }
+    h1 {
+      font-family: 'Pacifico', cursive;
+      font-size: 3em;
+      color: #d63384;
+      margin-top: 2rem;
+    }
+    .message {
+      max-width: 700px;
+      margin: 2rem auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 20px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    .gallery img {
+      width: 80%;
+      max-width: 300px;
+      border-radius: 15px;
+      margin: 1rem 0;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    .button {
+      display: inline-block;
+      margin-top: 2rem;
+      padding: 0.8rem 1.5rem;
+      background: #ff4da6;
+      color: white;
+      font-size: 1.1rem;
+      border-radius: 30px;
+      text-decoration: none;
+      transition: background 0.3s;
+      cursor: pointer;
+    }
+    .button:hover {
+      background: #e60073;
+    }
+    .hearts {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+    }
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: pink;
+      transform: rotate(45deg);
+      animation: float 6s infinite;
+    }
+    .heart::before, .heart::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: pink;
+      border-radius: 50%;
+    }
+    .heart::before {
+      top: -10px;
+      left: 0;
+    }
+    .heart::after {
+      left: -10px;
+      top: 0;
+    }
+    @keyframes float {
+      0% {
+        transform: translateY(100vh) rotate(45deg);
+        opacity: 0;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-10vh) rotate(45deg);
+        opacity: 0;
+      }
+    }
+    .popup {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0);
+      background: #fff0f5;
+      padding: 2rem;
+      border-radius: 25px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      z-index: 1000;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+    .popup.show {
+      transform: translate(-50%, -50%) scale(1);
+    }
+    .popup h2 {
+      color: #ff3399;
+      font-family: 'Pacifico', cursive;
+    }
+    .popup p {
+      font-size: 1.2rem;
+      color: #444;
+    }
+  </style>
+</head>
+<body>
+  <div class="hearts"></div>
+
+  <h1>Happy Birthday, Wijwijti 💖</h1>
+  <div class="message">
+    <p>To my beautiful Wijwijti,</p>
+    <p>From the moment I met you, my world became warmer, brighter, and full of meaning. In five years, I know you’ll be my wife – but in my heart, you already are.</p>
+    <p>Happy birthday, my love. May today shine like your smile, and may our future be even more beautiful than our dreams.</p>
+    <p>— Your future husband Houssam💍❤️</p>
+  </div>
+
+  <div class="gallery">
+    <img src="./img/ChatGPT Image 9 juil. 2025, 23_34_54.png" alt="Romantic 1">
+    <img src="./img/right.webp" alt="Romantic 2">
+  </div>
+
+  <a class="button" onclick="showPopup()">Click here to smile again 💌</a>
+
+  <!-- Background music -->
+  <audio autoplay loop>
+    <source src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- Romantic popup -->
+  <div id="popup" class="popup">
+    <h2>You are my forever 💖</h2>
+    <p id="popup-message">Every heartbeat whispers your name, Wijwijti.</p>
+  </div>
+
+  <!-- Romantic sound -->
+  <audio id="loveSound">
+    <source src="https://www.fesliyanstudios.com/play-mp3/387" type="audio/mpeg">
+  </audio>
+
+  <!-- Confetti -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+  <script>
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.animationDuration = (Math.random() * 3 + 3) + 's';
+      document.querySelector('.hearts').appendChild(heart);
+      setTimeout(() => heart.remove(), 6000);
+    }
+    setInterval(createHeart, 300);
+
+    const loveMessages = [
+      "You’re the first person I think of when I wake up and the last one before I sleep. 💖",
+      "In your smile, I see something more beautiful than the stars. ✨",
+      "You are the reason my heart beats like a love song. 🎵",
+      "Being with you feels like magic, always. 🔮",
+      "Every second without you feels like an hour. I love you more than words. ❤️",
+      "You’re my sunshine on rainy days and my moonlight on dark nights. 🌙☀️",
+      "I still get butterflies every time I think of you, my love. 🦋",
+      "If I had a flower for every time I thought of you, my garden would never end. 🌸",
+      "I’m so lucky to call you mine. You’re everything I ever dreamed of. 💍",
+      "You’re my forever and always, my one and only Wijwijti. 💘"
+    ];
+
+    function showPopup() {
+      const popup = document.getElementById('popup');
+      const message = document.getElementById('popup-message');
+      const randomIndex = Math.floor(Math.random() * loveMessages.length);
+      message.textContent = loveMessages[randomIndex];
+
+      popup.classList.add('show');
+
+      confetti({
+        particleCount: 100,
+        spread: 70,
+        origin: { y: 0.6 }
+      });
+
+      document.getElementById('loveSound').play();
+
+      setTimeout(() => popup.classList.remove('show'), 9000);
+    }
+  </script>
+</body>
+</html>
